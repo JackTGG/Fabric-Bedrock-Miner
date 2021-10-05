@@ -129,7 +129,7 @@ public class TargetBlock {
         this.redstoneTorchBlockPos = CheckingEnvironment.findNearbyFlatBlockToPlaceRedstoneTorch(this.world, this.blockPos);
         if (this.redstoneTorchBlockPos == null) {
             this.status = Status.FAILED;
-            Messager.actionBar("无法放置红石火把！ Failed to place redstone torch!");
+            Messager.actionBar("bedrockminer.fail.place.redstonetorch");
         } else if (!this.world.getBlockState(this.blockPos).isOf(Blocks.BEDROCK) && this.world.getBlockState(this.pistonBlockPos).isOf(Blocks.PISTON)) {
             this.status = Status.RETRACTED;
         } else if (this.world.getBlockState(this.pistonBlockPos).isOf(Blocks.PISTON) && this.world.getBlockState(this.pistonBlockPos).get(PistonBlock.EXTENDED)) {
@@ -151,7 +151,7 @@ public class TargetBlock {
             this.status = Status.UNINITIALIZED;
         } else if (!CheckingEnvironment.has2BlocksOfPlaceToPlacePiston(world, this.blockPos)) {
             this.status = Status.FAILED;
-            Messager.actionBar("无法放置活塞！ Failed to place piston!");
+            Messager.actionBar("bedrockminer.fail.place.piston");
         } else {
             this.status = Status.FAILED;
         }
